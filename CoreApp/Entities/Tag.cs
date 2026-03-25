@@ -1,6 +1,6 @@
 ﻿namespace CoreApp.Entities
 {
-    public class Tag
+    public class Tag : EntityBase
     {
         public Guid Id { get; set; }
 

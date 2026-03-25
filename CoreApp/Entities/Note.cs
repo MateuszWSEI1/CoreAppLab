@@ -1,6 +1,6 @@
 ﻿namespace CoreApp.Entities
 {
-    public class Note
+    public class Note : EntityBase
     {
         public Guid Id { get; set; }
 

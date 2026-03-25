@@ -2,7 +2,7 @@
 
 namespace CoreApp.Entities
 {
-    public class Address
+    public class Address : EntityBase
     {
         public string Street { get; set; }
 

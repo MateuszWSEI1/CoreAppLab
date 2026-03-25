@@ -2,7 +2,7 @@
 
 namespace CoreApp.Entities
 {
-    public class Organization
+    public class Organization : EntityBase
     {
         public Guid Id { get; set; }
 

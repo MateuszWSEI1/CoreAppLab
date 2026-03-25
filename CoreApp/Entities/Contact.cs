@@ -2,7 +2,7 @@
 
 namespace CoreApp.Entities
 {
-    public abstract class Contact
+    public abstract class Contact : EntityBase
     {
         public Guid Id { get; set; }
         public string Mail { get; set; }
