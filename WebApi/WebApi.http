@@ -1,6 +1,50 @@
 @WebApi_HostAddress = http://localhost:5081
 
-GET {{WebApi_HostAddress}}/weatherforecast/
+### 1. Pobierz wszystkich (Paginacja)
+GET {{WebApi_HostAddress}}/api/contacts?page=1&size=10
 Accept: application/json
 
 ###
+
+### 2. Dodaj nową osobę (POST)
+### 
+POST {{WebApi_HostAddress}}/api/contacts
+Content-Type: application/json
+
+{
+  "firstName": "Adam",
+  "lastName": "Nowak",
+  "email": "adam@wsei.edu.pl",
+  "phone": "48 123 456 789"
+}
+
+###
+
+### 3. Pobierz konkretną osobę ()
+GET {{WebApi_HostAddress}}/api/contacts/a323d8f2-e978-4b5b-afda-5cc748c5bf12
+Accept: application/json
+
+###
+
+### 4. Edytuj istniejącą osobę (PUT)
+### 
+PUT {{WebApi_HostAddress}}/api/contacts/a323d8f2-e978-4b5b-afda-5cc748c5bf12
+Content-Type: application/json
+
+{
+  "firstName": "Adam",
+  "lastName": "Nowakowski",
+  "email": "adam.nowakowski@wsei.edu.pl",
+  "phone": "48 999 888 777"
+}
+
+###
+
+### 5. Test walidacji ()
+POST {{WebApi_HostAddress}}/api/contacts
+Content-Type: application/json
+
+{
+  "firstName": "Adam",
+  "lastName": "Nowak"
+}
