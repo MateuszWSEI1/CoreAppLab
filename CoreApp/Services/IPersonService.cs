@@ -25,4 +25,5 @@ public interface IPersonService
     Task AddNoteAsync(Guid personId, string content);
 
     Task<IEnumerable<string>> GetNotesAsync(Guid personId);
+    
 }

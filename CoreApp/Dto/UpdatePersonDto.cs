@@ -3,6 +3,7 @@
 namespace CoreApp.Dto;
 
 public record UpdatePersonDto(
+    Guid id,
     string? FirstName,
     string? LastName,
     string? Email,

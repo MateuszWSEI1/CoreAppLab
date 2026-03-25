@@ -1,9 +1,12 @@
+using CoreApp.Module;
 using CoreApp.Repositories;
 using CoreApp.Services;
 using Infrastructure.Memory;
 using Infrastructure.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddContactsModule(builder.Configuration);
 
 builder.Services.AddControllers();
 
