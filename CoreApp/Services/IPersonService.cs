@@ -1,4 +1,5 @@
 ﻿using CoreApp.Dto;
+using CoreApp.Entities;
 
 namespace CoreApp.Services;
 
@@ -25,5 +26,9 @@ public interface IPersonService
     Task AddNoteAsync(Guid personId, string content);
 
     Task<IEnumerable<string>> GetNotesAsync(Guid personId);
+    
+    Task<Note> AddNoteToPerson(Guid personId, CreateNoteDto noteDto);
+    
+    Task<PersonDto> GetPerson(Guid personId);
     
 }

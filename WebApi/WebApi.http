@@ -7,7 +7,6 @@ Accept: application/json
 ###
 
 ### 2. Dodaj nową osobę (POST)
-### 
 POST {{WebApi_HostAddress}}/api/contacts
 Content-Type: application/json
 
@@ -20,14 +19,13 @@ Content-Type: application/json
 
 ###
 
-### 3. Pobierz konkretną osobę ()
+### 3. Pobierz konkretną osobę
 GET {{WebApi_HostAddress}}/api/contacts/a323d8f2-e978-4b5b-afda-5cc748c5bf12
 Accept: application/json
 
 ###
 
 ### 4. Edytuj istniejącą osobę (PUT)
-### 
 PUT {{WebApi_HostAddress}}/api/contacts/a323d8f2-e978-4b5b-afda-5cc748c5bf12
 Content-Type: application/json
 
@@ -40,7 +38,7 @@ Content-Type: application/json
 
 ###
 
-### 5. Test walidacji ()
+### 5. Test walidacji
 POST {{WebApi_HostAddress}}/api/contacts
 Content-Type: application/json
 
@@ -48,3 +46,21 @@ Content-Type: application/json
   "firstName": "Adam",
   "lastName": "Nowak"
 }
+
+###
+
+### 6. Dodanie notatki do osoby
+POST {{WebApi_HostAddress}}/api/contacts/bfeeac12-1834-42e0-b312-e2c8541fee7a/notes
+Content-Type: application/json
+
+{
+  "content": "Moja pierwsza notatka"
+}
+
+###
+
+### 7. Pobranie notatek osoby
+GET {{WebApi_HostAddress}}/api/contacts/bfeeac12-1834-42e0-b312-e2c8541fee7a/notes
+Accept: application/json
+
+###

@@ -22,5 +22,7 @@ namespace CoreApp.Entities
         {
             return $"{FirstName} {LastName}";
         }
+        
+        public List<Note>? Notes { get; set; }
     }
 }

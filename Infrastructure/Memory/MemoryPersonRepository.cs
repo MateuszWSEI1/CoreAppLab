@@ -9,15 +9,21 @@ public class MemoryPersonRepository
 {
     public MemoryPersonRepository() : base()
     {
-        _data.Add(Guid.NewGuid(), new Person()
+        var id1 = Guid.NewGuid();
+
+        _data.Add(id1, new Person()
         {
+            Id = id1,
             FirstName = "Adam",
             LastName = "Nowak",
             Gender = Gender.Male
         });
 
-        _data.Add(Guid.NewGuid(), new Person()
+        var id2 = Guid.NewGuid();
+
+        _data.Add(id2, new Person()
         {
+            Id = id2,
             FirstName = "Anna",
             LastName = "Kowalska",
             Gender = Gender.Female

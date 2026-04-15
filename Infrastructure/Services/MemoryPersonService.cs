@@ -143,4 +143,56 @@ public class MemoryPersonService : IPersonService
             await Task.Yield();
         }
     }
+    
+    public async Task<Note> AddNoteToPerson(Guid personId, CreateNoteDto noteDto)
+    {
+        var person = await _unitOfWork.Persons.FindByIdAsync(personId);
+
+        if (person == null)
+            throw new Exception("Person not found");
+
+        if (person.Notes == null)
+            person.Notes = new List<Note>();
+
+        var note = new Note
+        {
+            Id = Guid.NewGuid(),
+            Content = noteDto.Content,
+            CreatedAt = DateTime.UtcNow
+        };
+
+        person.Notes.Add(note);
+
+        await _unitOfWork.Persons.UpdateAsync(person);
+        await _unitOfWork.SaveChangesAsync();
+
+        return note;
+    }
+    
+    public async Task<PersonDto> GetPerson(Guid personId)
+    {
+        var person = await _unitOfWork.Persons.FindByIdAsync(personId);
+
+        if (person == null)
+            throw new Exception("Person not found");
+
+        return new PersonDto
+        {
+            Id = person.Id,
+            FirstName = person.FirstName,
+            LastName = person.LastName,
+            Email = person.Email,
+            Phone = person.Phone,
+            Gender = person.Gender,
+            Position = person.Position,
+            BirthDate = person.BirthDate,
+            Status = person.Status,
+            Notes = person.Notes?.Select(n => new NoteDto
+            {
+                Id = n.Id,
+                Content = n.Content,
+                CreatedAt = n.CreatedAt
+            }).ToList()
+        };
+    }
 }
