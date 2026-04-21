@@ -3,6 +3,8 @@ using CoreApp.Repositories;
 using CoreApp.Services;
 using Infrastructure.Memory;
 using Infrastructure.Services;
+using WebApi.Exceptions;
+using Microsoft.AspNetCore.Diagnostics;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +23,9 @@ builder.Services.AddSingleton<IContactUnitOfWork, MemoryContactUnitOfWork>();
 
 builder.Services.AddSingleton<IPersonService, MemoryPersonService>();
 
+builder.Services.AddExceptionHandler<ProblemDetailsExceptionHandler>();
+builder.Services.AddProblemDetails();
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -30,7 +35,7 @@ if (app.Environment.IsDevelopment())
 
 //app.UseHttpsRedirection();
 app.UseAuthorization();
-
+app.UseExceptionHandler();
 app.MapControllers();
 
 app.Run();

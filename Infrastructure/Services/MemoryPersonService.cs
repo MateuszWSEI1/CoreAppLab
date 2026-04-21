@@ -149,7 +149,7 @@ public class MemoryPersonService : IPersonService
         var person = await _unitOfWork.Persons.FindByIdAsync(personId);
 
         if (person == null)
-            throw new Exception($"Person with id={personId} not found!");
+            throw new ContactNotFoundException($"Person with id={personId} not found!");
 
         if (person.Notes == null)
             person.Notes = new List<Note>();
