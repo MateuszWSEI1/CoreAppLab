@@ -1,16 +1,15 @@
 ﻿using CoreApp.Dto;
 using CoreApp.Entities;
-using CoreApp.Repositories;
-using CoreApp.Services;
 using CoreApp.Exceptions;
+using CoreApp.Repositories;
 
-namespace Infrastructure.Services;
+namespace CoreApp.Services;
 
-public class MemoryPersonService : IPersonService
+public class PersonService : IPersonService
 {
     private readonly IContactUnitOfWork _unitOfWork;
 
-    public MemoryPersonService(IContactUnitOfWork unitOfWork)
+    public PersonService(IContactUnitOfWork unitOfWork)
     {
         _unitOfWork = unitOfWork;
     }

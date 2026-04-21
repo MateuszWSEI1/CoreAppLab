@@ -25,4 +25,8 @@
       <ProjectReference Include="..\CoreApp\CoreApp.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Services\" />
+    </ItemGroup>
+
 </Project>

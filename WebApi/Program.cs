@@ -2,7 +2,6 @@ using CoreApp.Module;
 using CoreApp.Repositories;
 using CoreApp.Services;
 using Infrastructure.Memory;
-using Infrastructure.Services;
 using WebApi.Exceptions;
 using Microsoft.AspNetCore.Diagnostics;
 
@@ -21,7 +20,7 @@ builder.Services.AddSingleton<IContactRepositoryAsync, MemoryContactRepository>(
 
 builder.Services.AddSingleton<IContactUnitOfWork, MemoryContactUnitOfWork>();
 
-builder.Services.AddSingleton<IPersonService, MemoryPersonService>();
+builder.Services.AddSingleton<IPersonService, PersonService>();
 
 builder.Services.AddExceptionHandler<ProblemDetailsExceptionHandler>();
 builder.Services.AddProblemDetails();
