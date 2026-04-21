@@ -78,4 +78,12 @@ public class ContactsController : ControllerBase
         var person = await _service.GetPerson(contactId);
         return Ok(person.Notes);
     }
+    [HttpDelete("{contactId:guid}/notes/{noteId:guid}")]
+    public async Task<IActionResult> DeleteNote(
+        [FromRoute] Guid contactId,
+        [FromRoute] Guid noteId)
+    {
+        await _service.DeleteNote(contactId, noteId);
+        return NoContent();
+    }
 }

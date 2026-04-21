@@ -48,7 +48,7 @@ Content-Type: application/json
 }
 
 ### 6. Dodanie notatki do osoby
-POST {{WebApi_HostAddress}}/api/contacts/00000000-0000-0000-0000-000000000000/notes
+POST {{WebApi_HostAddress}}/api/contacts/66fbbd4f-bb8f-47bd-8e99-9cd6308aac56/notes
 Content-Type: application/json
 
 {
@@ -58,7 +58,13 @@ Content-Type: application/json
 ###
 
 ### 7. Pobranie notatek osoby
-GET {{WebApi_HostAddress}}/api/contacts/4606f8da-924a-4383-a707-c7f9017e84c1/notes
+GET {{WebApi_HostAddress}}/api/contacts/66fbbd4f-bb8f-47bd-8e99-9cd6308aac56/notes
+Content-Type: application/json
+
+###
+
+### 8. Usunięcie notatki osoby
+DELETE {{WebApi_HostAddress}}/api/contacts/66fbbd4f-bb8f-47bd-8e99-9cd6308aac56/notes/e81fad59-bce8-4c01-90f9-62f489e7823b
 Content-Type: application/json
 
 ###

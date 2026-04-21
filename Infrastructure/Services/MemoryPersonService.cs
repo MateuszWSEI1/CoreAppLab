@@ -197,4 +197,24 @@ public class MemoryPersonService : IPersonService
             }).ToList()
         };
     }
+    public async Task DeleteNote(Guid personId, Guid noteId)
+    {
+        var person = await _unitOfWork.Persons.FindByIdAsync(personId);
+
+        if (person == null)
+            throw new Exception($"Person with id={personId} not found!");
+
+        if (person.Notes == null)
+            throw new Exception("No notes found!");
+
+        var note = person.Notes.FirstOrDefault(n => n.Id == noteId);
+
+        if (note == null)
+            throw new Exception($"Note with id={noteId} not found!");
+
+        person.Notes.Remove(note);
+
+        await _unitOfWork.Persons.UpdateAsync(person);
+        await _unitOfWork.SaveChangesAsync();
+    }
 }

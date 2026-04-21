@@ -29,5 +29,6 @@ public interface IPersonService
     
     Task<Note> AddNoteToPerson(Guid personId, CreateNoteDto noteDto);
     Task<PersonDto> GetPerson(Guid personId);
+    Task DeleteNote(Guid personId, Guid noteId);
     
 }
