@@ -7,7 +7,6 @@ Accept: application/json
 ###
 
 ### 2. Dodaj nową osobę (POST)
-### 
 POST {{WebApi_HostAddress}}/api/contacts
 Content-Type: application/json
 
@@ -15,7 +14,7 @@ Content-Type: application/json
   "firstName": "Adam",
   "lastName": "Nowak",
   "email": "adam@wsei.edu.pl",
-  "phone": "48 123 456 789"
+  "phone": "48123456789"
 }
 
 ###
@@ -27,7 +26,6 @@ Accept: application/json
 ###
 
 ### 4. Edytuj istniejącą osobę (PUT)
-### 
 PUT {{WebApi_HostAddress}}/api/contacts/a323d8f2-e978-4b5b-afda-5cc748c5bf12
 Content-Type: application/json
 
@@ -48,3 +46,19 @@ Content-Type: application/json
   "firstName": "Adam",
   "lastName": "Nowak"
 }
+
+### 6. Dodanie notatki do osoby
+POST {{WebApi_HostAddress}}/api/contacts/4606f8da-924a-4383-a707-c7f9017e84c1/notes
+Content-Type: application/json
+
+{
+  "content": "New note"
+}
+
+###
+
+### 7. Pobranie notatek osoby
+GET {{WebApi_HostAddress}}/api/contacts/4606f8da-924a-4383-a707-c7f9017e84c1/notes
+Content-Type: application/json
+
+###

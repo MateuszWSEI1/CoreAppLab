@@ -49,11 +49,7 @@ public class MemoryGenericRepository<T> : IGenericRepositoryAsync<T>
 
     public Task<T> UpdateAsync(T entity)
     {
-        if (!_data.ContainsKey(entity.Id))
-            throw new KeyNotFoundException("Entity not found.");
-
         _data[entity.Id] = entity;
-
         return Task.FromResult(entity);
     }
 

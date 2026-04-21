@@ -4,24 +4,27 @@ using CoreApp.Enums;
 
 namespace Infrastructure.Memory;
 
-public class MemoryPersonRepository 
-    : MemoryGenericRepository<Person>, IPersonRepositoryAsync
+public class MemoryPersonRepository : MemoryGenericRepository<Person>, IPersonRepositoryAsync
 {
-    public MemoryPersonRepository() : base()
+    public MemoryPersonRepository()
     {
-        _data.Add(Guid.NewGuid(), new Person()
+        var id1 = Guid.NewGuid();
+        _data[id1] = new Person
         {
+            Id = id1,
             FirstName = "Adam",
             LastName = "Nowak",
             Gender = Gender.Male
-        });
+        };
 
-        _data.Add(Guid.NewGuid(), new Person()
+        var id2 = Guid.NewGuid();
+        _data[id2] = new Person
         {
+            Id = id2,
             FirstName = "Anna",
             LastName = "Kowalska",
             Gender = Gender.Female
-        });
+        };
     }
 
     public Task<IEnumerable<Person>> FindByEmployerAsync(Guid companyId)
