@@ -26,8 +26,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="EntityFramework\Context\" />
-      <Folder Include="EntityFramework\Entities\" />
       <Folder Include="EntityFramework\Repositories\" />
       <Folder Include="EntityFramework\UnitOfWork\" />
     </ItemGroup>
