@@ -2,7 +2,7 @@
 
 namespace CoreApp.Entities
 {
-    public class Organization : EntityBase
+    public class Organization : Contact
     {
         public Guid Id { get; set; }
 
@@ -20,7 +20,7 @@ namespace CoreApp.Entities
 
         public Person? PrimaryContact { get; set; }
 
-        public string GetDisplayName()
+        public override string GetDisplayName()
         {
             return Name;
         }

@@ -67,4 +67,18 @@ Content-Type: application/json
 DELETE {{WebApi_HostAddress}}/api/contacts/66fbbd4f-bb8f-47bd-8e99-9cd6308aac56/notes/e81fad59-bce8-4c01-90f9-62f489e7823b
 Content-Type: application/json
 
+### 9. Pobranie wszystkich kontakow
+GET {{WebApi_HostAddress}}/api/contacts?page=1&size=10
+Accept: application/json
+
 ###
+
+POST http://localhost:5081/api/contacts
+Content-Type: application/json
+
+{
+  "firstName": "Jan",
+  "lastName": "Testowy",
+  "email": "jan@test.pl",
+  "phone": "123123123"
+}

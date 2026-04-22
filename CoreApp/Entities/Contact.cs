@@ -7,7 +7,7 @@ namespace CoreApp.Entities
         public Guid Id { get; set; }
         public string Mail { get; set; }
         public string Phone { get; set; }
-        public Address Address { get; set; }
+        public Address? Address { get; set; }
 
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }

@@ -55,6 +55,7 @@ public class PersonService : IPersonService
             Id = Guid.NewGuid(),
             FirstName = dto.FirstName,
             LastName = dto.LastName,
+            Mail = dto.Email,
             Email = dto.Email,
             Phone = dto.Phone,
             Position = dto.Position,
