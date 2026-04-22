@@ -1,7 +1,8 @@
 using CoreApp.Module;
 using Infrastructure;
+using Infrastructure.EntityFramework.Context;
+using Microsoft.EntityFrameworkCore;
 using WebApi.Exceptions;
-using Microsoft.AspNetCore.Diagnostics;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +17,14 @@ builder.Services.AddProblemDetails();
 
 var app = builder.Build();
 
+app.UseExceptionHandler();
+
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<ContactsDbContext>();
+    db.Database.Migrate();
+}
+
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
@@ -23,7 +32,6 @@ if (app.Environment.IsDevelopment())
 
 // app.UseHttpsRedirection();
 app.UseAuthorization();
-app.UseExceptionHandler();
 app.MapControllers();
 
 app.Run();

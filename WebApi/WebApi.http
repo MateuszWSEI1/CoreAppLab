@@ -48,7 +48,7 @@ Content-Type: application/json
 }
 
 ### 6. Dodanie notatki do osoby
-POST {{WebApi_HostAddress}}/api/contacts/971beb4b-c6fd-407a-a77e-29f45ed3e030/notes
+POST {{WebApi_HostAddress}}/api/contacts/ec3b2631-62b9-48f2-ad09-25065fc3243c/notes
 Content-Type: application/json
 
 {
@@ -58,7 +58,7 @@ Content-Type: application/json
 ###
 
 ### 7. Pobranie notatek osoby
-GET {{WebApi_HostAddress}}/api/contacts/971beb4b-c6fd-407a-a77e-29f45ed3e030/notes
+GET {{WebApi_HostAddress}}/api/contacts/ec3b2631-62b9-48f2-ad09-25065fc3243c/notes
 Content-Type: application/json
 
 ###
